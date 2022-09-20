@@ -2,15 +2,17 @@ const chai = require("chai");
 const expect = chai.expect;
 const { isFive, isOdd, myRange } = require("../funcs");
 
+// this test is testing function isFive, one arg,
+// 
 describe("isFive(num)", () => {
   it("should return true if the num is 5 otherwise false", () => {
-    const num1 = 5;
+    const num1 = 5; // checking if arg = 5, true case
 
     const actual1 = isFive(num1); // should be true
 
-    expect(actual1).to.be.true;
+    expect(actual1).to.be.true; // comparing
 
-    const otherInput = "not 5";
+    const otherInput = "not 5"; // chacking not five case
     const num2 = 4;
 
     const actual2 = isFive(num2); // should be false
@@ -21,11 +23,11 @@ describe("isFive(num)", () => {
   });
 });
 
-describe("isOdd(number)", () => {
+describe("isOdd(number)", () => { // checking 1 arg is Odd
   it("should return true if number is odd", () => {
-    const num1 = 3;
-    const num2 = 2953;
-    const num3 = -999;
+    const num1 = 3; // true case
+    const num2 = 2953; // true case with big number
+    const num3 = -999; // true case with negative
 
     const actual1 = isOdd(num1); // should be true
     const actual2 = isOdd(num2); // should be true
@@ -36,8 +38,8 @@ describe("isOdd(number)", () => {
     expect(actual3).to.be.true;
   });
 
-  it("should return false if the num is even", () => {
-    const num1 = 4;
+  it("should return false if the num is even", () => { // checking even cases
+    const num1 = 4; // check small, bigger and negative
     const num2 = 2952;
     const num3 = -998;
 
@@ -50,7 +52,7 @@ describe("isOdd(number)", () => {
     expect(actual3).to.be.false;
   });
 
-  it("should throw an error if num is not type of Number", () => {
+  it("should throw an error if num is not type of Number", () => { //check string, obj and array
     const string = "i am a string";
     const object = { i: "am", an: "object" };
     const array = ["i", "am", "an", "array"];
@@ -61,11 +63,11 @@ describe("isOdd(number)", () => {
   });
 });
 
-describe("myRange(min, max, step)", () => {
+describe("myRange(min, max, step)", () => { // creating arr with step
   context("if step is not provided", () => {
     it("should return the correct array with default value step=1", () => {
-      const [min1, max1] = [0, 5];
-      const [min2, max2] = [6, 3];
+      const [min1, max1] = [0, 5]; // checking without step to step 1
+      const [min2, max2] = [6, 3]; // reverse case check
 
       const actual1 = myRange(min1, max1);
       const expected1 = [0, 1, 2, 3, 4, 5];
@@ -77,11 +79,11 @@ describe("myRange(min, max, step)", () => {
     });
   });
 
-  context("if step is provided", () => {
+  context("if step is provided", () => { // check with steps
     it("should return the correct array", () => {
-      const [min1, max1, step1] = [0, 5, 1];
-      const [min2, max2, step2] = [0, 5, 2];
-      const [min3, max3, step3] = [9, 5, 2];
+      const [min1, max1, step1] = [0, 5, 1]; // ok case step1
+      const [min2, max2, step2] = [0, 5, 2]; // ok step 2
+      const [min3, max3, step3] = [9, 5, 2]; // reverse step 2
 
       const actual1 = myRange(min1, max1, step1);
       const expected1 = [0, 1, 2, 3, 4, 5];
